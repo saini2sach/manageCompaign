@@ -2,7 +2,7 @@
   "name": "manage-campigns",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://saini2sach.github.io/manageCampaign/",
+  "homepage": "https://saini2sach.github.io/manageCompaign/",
   "dependencies": {
     "node-sass": "^4.12.0",
     "react": "^16.10.2",

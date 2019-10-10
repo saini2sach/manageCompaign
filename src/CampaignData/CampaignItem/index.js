@@ -18,25 +18,29 @@ export default class CampaignItem extends Component {
   }
 
   getDay = (date) => {
-    return 'sdf'
+    let timeDiff = new Date() - new Date(date);
+    return Math.floor(timeDiff / 86400000)
   }
   render() {
     const { showModal } = this.state;
     const { item } = this.props;
+    const { logo_url, date, name, view, country } = item
     return (
       <>
         <div className={s.rowItem} onClick={this.toggleModal.bind(this, true)}>
           <div className={s.colItem}>
-            <div>{item.date}</div>
-            <div>{this.getDay(item.date)}</div>
+            <div>{date}</div>
+            <div>{Math.abs(this.getDay(date))} days {this.getDay(date) > 0 ? 'ago' : 'ahead'}</div>
+          </div>
+          <div className={s.colItem + ' ' + s.nameItem}>
+            <div><img src={logo_url ? logo_url : logo} alt='logo'></img></div>
+            <div>
+              <div>{name}</div>
+              <div>{country}</div>
+            </div>
           </div>
           <div className={s.colItem}>
-            <div><img src={logo} alt='logo'></img></div>
-            <div>{item.name}</div>
-            <div>{this.getDay(item.date)}</div>
-          </div>
-          <div className={s.colItem}>
-            <div>{item.view}</div>
+            <div>{view}</div>
           </div>
           <div className={s.colItem}>
             <div>CSV</div>
@@ -50,8 +54,8 @@ export default class CampaignItem extends Component {
               <p onClick={this.toggleModal.bind(this, false)}>Close</p>
               <h2>Campaign Details:</h2>
               <div>
-                <h3>{item.name}</h3>
-                <h4>{item.date}</h4>
+                <h3>{name}</h3>
+                <h4>{date}</h4>
               </div>
             </div>
           </div>
