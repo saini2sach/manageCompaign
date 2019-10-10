@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import s from "./../../CampaignData/CampaignData.module.scss";
+import logo from '../../logo.svg';
 
 export default class CampaignItem extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class CampaignItem extends Component {
             <div>{this.getDay(item.date)}</div>
           </div>
           <div className={s.colItem}>
-            <div><img src="" alt='logo'></img></div>
+            <div><img src={logo} alt='logo'></img></div>
             <div>{item.name}</div>
             <div>{this.getDay(item.date)}</div>
           </div>
