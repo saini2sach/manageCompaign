@@ -24,13 +24,14 @@ export default class CampaignItem extends Component {
   render() {
     const { showModal } = this.state;
     const { item } = this.props;
-    const { logo_url, date, name, view, country } = item
+    const { logo_url, date, name, view, country } = item;
+    let dayStr = Math.abs(this.getDay(date)) + ' days ' + (this.getDay(date) > 0 ? 'ago' : 'ahead');
     return (
       <>
         <div className={s.rowItem} onClick={this.toggleModal.bind(this, true)}>
           <div className={s.colItem}>
             <div>{date}</div>
-            <div>{Math.abs(this.getDay(date))} days {this.getDay(date) > 0 ? 'ago' : 'ahead'}</div>
+            <div>{dayStr}</div>
           </div>
           <div className={s.colItem + ' ' + s.nameItem}>
             <div><img src={logo_url ? logo_url : logo} alt='logo'></img></div>
@@ -56,6 +57,7 @@ export default class CampaignItem extends Component {
               <div>
                 <h3>{name}</h3>
                 <h4>{date}</h4>
+                <h5>{dayStr}</h5>
               </div>
             </div>
           </div>

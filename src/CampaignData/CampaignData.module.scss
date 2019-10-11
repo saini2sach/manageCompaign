@@ -1,10 +1,11 @@
 .mainContainer {
+  color: #333;
 
   .rowItem {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 12px;
+    padding: 12px 0;
     border-bottom: 1px solid #d2d2d2;
 
     .colItem {
@@ -22,6 +23,10 @@
           margin-right: 12px;
         }
       }
+    }
+
+    &:first-child {
+      background: #d2d2d2;
     }
   }
 
